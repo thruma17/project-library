@@ -9,6 +9,31 @@
   <body>
     <header class="header"><h1>Library</h1></header>
     <main class="main">
+      <dialog class="modal" id="modal">
+        <form action="" class="new-book">
+          <h2 class="title">Fill in with the details of the book</h2>
+          <div class="form-inputs">
+            <div class="form-input">
+              <label for="booktitle">Title</label
+              ><input type="text" name="booktitle" id="booktitle" />
+            </div>
+            <div class="form-input">
+              <label for="bookauthor">Author</label
+              ><input type="text" name="bookauthor" id="bookauthor" />
+            </div>
+            <div class="form-input">
+              <label for="bookpages">Pages</label
+              ><input type="text" name="bookpages" id="bookpages" />
+            </div>
+            <div class="form-input"></div>
+            <div class="label-read">
+              <label for="bookread">Read</label>
+              <input type="checkbox" name="bookread" id="bookread" />
+            </div>
+          </div>
+          <button type="submit" class="submit-btn">Add</button>
+        </form>
+      </dialog>
       <button type="button" class="btn btn-add" id="addBookBtn">
         + Add Book
       </button>
