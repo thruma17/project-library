@@ -9,30 +9,29 @@
   <body>
     <header class="header"><h1>Library</h1></header>
     <main class="main">
-      <dialog class="modal" id="modal">
+      <dialog open class="modal" id="modal">
         <form class="new-book" method="dialog">
+          <h2 class="title">Add new book</h2>
           <button type="button" class="close-modal-btn">x</button>
-          <h2 class="title">Fill in with the details of the book</h2>
           <div class="form-inputs">
             <div class="form-input">
-              <label for="booktitle">Title</label
+              <label for="booktitle">What's the title?</label
               ><input type="text" name="booktitle" id="booktitle" />
             </div>
             <div class="form-input">
-              <label for="bookauthor">Author</label
+              <label for="bookauthor">Who's the author</label
               ><input type="text" name="bookauthor" id="bookauthor" />
             </div>
             <div class="form-input">
-              <label for="bookpages">Pages</label
-              ><input type="text" name="bookpages" id="bookpages" />
+              <label for="bookpages">How many pages?</label
+              ><input type="number" name="bookpages" id="bookpages" />
             </div>
-            <div class="form-input"></div>
             <div class="label-read">
-              <label for="bookread">Read</label>
+              <label for="bookread">Did you finish reading it?</label>
               <input type="checkbox" name="bookread" id="bookread" />
             </div>
           </div>
-          <button type="submit" class="submit-btn">Add</button>
+          <button type="submit" class="btn submit-btn">Add</button>
         </form>
       </dialog>
       <button type="button" class="btn open-modal-btn" id="addBookBtn">
