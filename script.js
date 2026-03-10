@@ -11,6 +11,33 @@ function Book(title, author, pages, read) {
   this.id = crypto.randomUUID();
 }
 
-function addBookToLibrary(title, author, pages) {
-  myLibrary.push(new Book(title, author, pages, false));
+function addBookToLibrary(title, author, pages, read) {
+  myLibrary.push(new Book(title, author, pages, read));
 }
+
+function displayLibrary() {
+  const library = document.querySelector(`.books-list`);
+  library.innerHTML = ``;
+
+  myLibrary.forEach((book) => {
+    const card = document.createElement(`div`);
+    card.classList.add(`book-card`);
+
+    card.innerHTML = `
+      <h3>${book.title}</h3>
+      <p><strong>Author:</strong> ${book.author}</p>
+      <p><strong>Pages:</strong> ${book.pages}</p>
+      <p><strong>Read:</strong> ${book.read}</p>
+    `;
+
+    library.appendChild(card);
+  });
+}
+
+// manual test books
+addBookToLibrary("book1", "author", 310, true);
+addBookToLibrary("book2", "author", 328, false);
+addBookToLibrary("book3", "author", 464, true);
+
+// initial render
+displayLibrary();
