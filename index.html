@@ -10,7 +10,8 @@
     <header class="header"><h1>Library</h1></header>
     <main class="main">
       <dialog class="modal" id="modal">
-        <form action="" class="new-book">
+        <form class="new-book" method="dialog">
+          <button type="button" class="close-modal-btn">x</button>
           <h2 class="title">Fill in with the details of the book</h2>
           <div class="form-inputs">
             <div class="form-input">
@@ -34,7 +35,7 @@
           <button type="submit" class="submit-btn">Add</button>
         </form>
       </dialog>
-      <button type="button" class="btn btn-add" id="addBookBtn">
+      <button type="button" class="btn open-modal-btn" id="addBookBtn">
         + Add Book
       </button>
       <div class="books-list" id="booksList"></div>

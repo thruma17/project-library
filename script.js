@@ -1,5 +1,6 @@
 const myLibrary = [];
 
+// book constructor
 function Book(title, author, pages, read) {
   if (!new.target) {
     throw Error("You must use the 'new' operator to call the constructor");
@@ -11,6 +12,7 @@ function Book(title, author, pages, read) {
   this.id = crypto.randomUUID();
 }
 
+// library function
 function addBookToLibrary(title, author, pages, read) {
   myLibrary.push(new Book(title, author, pages, read));
 }
@@ -37,6 +39,14 @@ function displayLibrary() {
     library.appendChild(card);
   });
 }
+
+// modal
+const modal = document.querySelector(`.modal`);
+const openModalBtn = document.querySelector(`.open-modal-btn`);
+const closeModalBtn = document.querySelector(`.close-modal-btn`);
+
+openModalBtn.addEventListener(`click`, () => modal.showModal());
+closeModalBtn.addEventListener(`click`, () => modal.close());
 
 // manual test books
 addBookToLibrary("book1", "author", 310, true);
