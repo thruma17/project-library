@@ -24,10 +24,14 @@ function displayLibrary() {
     card.classList.add(`book-card`);
 
     card.innerHTML = `
-      <h3>${book.title}</h3>
-      <p><strong>Author:</strong> ${book.author}</p>
-      <p><strong>Pages:</strong> ${book.pages}</p>
-      <p><strong>Read:</strong> ${book.read}</p>
+      <div class="book-title">
+        <h3>${book.title}</h3>
+      </div>
+      <div class="book-info">
+        <p><strong>Author:</strong> ${book.author}</p>
+        <p><strong>Pages:</strong> ${book.pages}</p>
+        <p><strong>Read:</strong> ${book.read}</p>
+      </div>
     `;
 
     library.appendChild(card);

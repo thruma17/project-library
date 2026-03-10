@@ -50,3 +50,69 @@ h5,
 h6 {
   overflow-wrap: break-word;
 }
+
+/* CUSTOM STYLE */
+
+body {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  justify-content: center;
+  text-align: center;
+  font-family: "Google Sans Code", monospace;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  gap: 2rem;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: auto;
+  justify-items: center;
+  gap: 2rem;
+}
+
+.btn {
+  background-color: white;
+  color: #8767d1;
+  border: 2px solid #8767d1;
+  border-radius: 10px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 700;
+}
+
+.books-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.book-card {
+  background-color: #8767d1;
+  color: white;
+  border-radius: 20px;
+  min-width: 20rem;
+  padding: 1.5rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.book-info {
+  display: grid;
+  justify-items: start;
+}
+
+img.github-logo {
+  max-width: 24px;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  min-height: 3rem;
+}
+
+footer p {
+  margin: 10px;
+}
