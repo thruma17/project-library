@@ -15,6 +15,8 @@ function Book(title, author, pages, read) {
 // library function
 function addBookToLibrary(title, author, pages, read) {
   myLibrary.push(new Book(title, author, pages, read));
+
+  displayLibrary();
 }
 
 function displayLibrary() {
@@ -47,6 +49,24 @@ const closeModalBtn = document.querySelector(`.close-modal-btn`);
 
 openModalBtn.addEventListener(`click`, () => modal.showModal());
 closeModalBtn.addEventListener(`click`, () => modal.close());
+
+// form
+const form = document.querySelector(`.new-book`);
+
+form.addEventListener("submit", (e) => {
+  const formData = new FormData(form);
+
+  read = formData.has("bookread") ? true : false;
+
+  addBookToLibrary(
+    formData.get("booktitle"),
+    formData.get("bookauthor"),
+    formData.get("bookpages"),
+    read,
+  );
+
+  form.reset();
+});
 
 // manual test books
 addBookToLibrary("book1", "author", 310, true);

@@ -9,22 +9,22 @@
   <body>
     <header class="header"><h1>Library</h1></header>
     <main class="main">
-      <dialog open class="modal" id="modal">
+      <dialog class="modal" id="modal">
         <form class="new-book" method="dialog">
           <h2 class="title">Add new book</h2>
           <button type="button" class="close-modal-btn">x</button>
           <div class="form-inputs">
             <div class="form-input">
               <label for="booktitle">What's the title?</label
-              ><input type="text" name="booktitle" id="booktitle" />
+              ><input type="text" name="booktitle" id="booktitle" required />
             </div>
             <div class="form-input">
               <label for="bookauthor">Who's the author</label
-              ><input type="text" name="bookauthor" id="bookauthor" />
+              ><input type="text" name="bookauthor" id="bookauthor" required />
             </div>
             <div class="form-input">
               <label for="bookpages">How many pages?</label
-              ><input type="number" name="bookpages" id="bookpages" />
+              ><input type="number" name="bookpages" id="bookpages" required />
             </div>
             <div class="label-read">
               <label for="bookread">Did you finish reading it?</label>
