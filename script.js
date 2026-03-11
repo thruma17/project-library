@@ -53,13 +53,16 @@ function displayLibrary() {
     readBtn.classList = `btn read-btn`;
     readBtn.textContent = `${book.isRead}`;
 
-    function readBtnText() {
+    function readBtnChange() {
       book.isRead
         ? (readBtn.textContent = `Unread`)
         : (readBtn.textContent = `Read`);
+      book.isRead
+        ? card.classList.add(`read-purple`)
+        : card.classList.remove(`read-purple`);
     }
 
-    readBtnText();
+    readBtnChange();
 
     const deleteBtn = document.createElement(`button`);
 
@@ -90,8 +93,6 @@ function displayLibrary() {
       deleteBtn.parentElement.parentElement.remove();
     });
   });
-
-  console.log(myLibrary);
 }
 
 // modal
