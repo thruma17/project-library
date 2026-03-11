@@ -1,20 +1,25 @@
 const myLibrary = [];
 
 // book constructor
-function Book(title, author, pages, read) {
+function Book(title, author, pages, isRead) {
   if (!new.target) {
     throw Error(`You must use the 'new' operator to call the constructor`);
   }
   this.title = title;
   this.author = author;
   this.pages = pages;
-  this.read = read;
+  this.isRead = isRead;
   this.id = crypto.randomUUID();
 }
 
+// toggle read function
+Book.prototype.toggleRead = function () {
+  this.isRead = !this.isRead;
+};
+
 // library function
-function addBookToLibrary(title, author, pages, read) {
-  myLibrary.push(new Book(title, author, pages, read));
+function addBookToLibrary(title, author, pages, isRead) {
+  myLibrary.push(new Book(title, author, pages, isRead));
 
   displayLibrary();
 }
@@ -39,31 +44,55 @@ function displayLibrary() {
       </div>
     `;
 
-    card.dataset.id = book.id;
+    const cardBtns = document.createElement(`div`);
+    cardBtns.classList.add(`card-btns`);
+
+    card.appendChild(cardBtns);
+
+    const readBtn = document.createElement(`button`);
+    readBtn.classList = `btn read-btn`;
+    readBtn.textContent = `${book.isRead}`;
+
+    function readBtnText() {
+      book.isRead
+        ? (readBtn.textContent = `Unread`)
+        : (readBtn.textContent = `Read`);
+    }
+
+    readBtnText();
 
     const deleteBtn = document.createElement(`button`);
 
     deleteBtn.classList = `btn remove-btn`;
     deleteBtn.textContent = `Remove`;
 
-    card.append(deleteBtn);
+    cardBtns.append(readBtn);
+    cardBtns.append(deleteBtn);
+
+    card.dataset.id = book.id;
 
     library.appendChild(card);
-  });
-}
 
-// remove book
-document.addEventListener(`click`, (e) => {
-  if (e.target.classList[1] === `remove-btn`) {
-    myLibrary.forEach((card, index) => {
-      if (card.id === e.target.parentElement.dataset.id) {
-        myLibrary.splice(index, 1);
-      }
+    // read book
+    readBtn.addEventListener(`click`, () => {
+      book.toggleRead();
+      displayLibrary();
     });
 
-    e.target.parentElement.remove();
-  }
-});
+    // remove book
+    deleteBtn.addEventListener(`click`, () => {
+      myLibrary.forEach((card, index) => {
+        if (card.id === deleteBtn.parentElement.parentElement.dataset.id) {
+          myLibrary.splice(index, 1);
+        }
+      });
+
+      deleteBtn.parentElement.parentElement.remove();
+    });
+  });
+
+  console.log(myLibrary);
+}
 
 // modal
 const modal = document.querySelector(`.modal`);
@@ -79,22 +108,17 @@ const form = document.querySelector(`.new-book`);
 form.addEventListener(`submit`, (e) => {
   const formData = new FormData(form);
 
-  read = formData.has(`bookread`) ? true : false;
+  isRead = formData.has(`bookread`) ? true : false;
 
   addBookToLibrary(
     formData.get(`booktitle`),
     formData.get(`bookauthor`),
     formData.get(`bookpages`),
-    read,
+    isRead,
   );
 
   form.reset();
 });
-
-// manual test books
-addBookToLibrary(`book1`, `author1`, 310, true);
-addBookToLibrary(`book2`, `author2`, 328, false);
-addBookToLibrary(`book3`, `author3`, 464, true);
 
 // initial render
 displayLibrary();

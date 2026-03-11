@@ -67,8 +67,9 @@ body {
   gap: 2rem;
 }
 
-h2 {
-  font-size: 3rem;
+h2 .title {
+  font-size: 2rem;
+  width: calc(100% - 5rem);
 }
 
 .main {
@@ -88,6 +89,7 @@ h2 {
 }
 
 .modal {
+  width: 80%;
   border: 0;
   border-radius: 1rem;
   box-shadow: 0 0 0.5rem 0.5rem rgba(0, 0, 0, 0.25);
@@ -124,14 +126,13 @@ h2 {
 }
 
 input {
-  border: 1px solid #8767d1;
+  border: 2px solid #8767d1;
   border-radius: 1rem;
   padding: 0.5rem;
 }
 
 input:focus-visible {
   outline: none;
-  border: 2px solid #8767d1;
   box-shadow: 0 0 20px 0 rgba(135, 103, 209, 0.5);
 }
 
@@ -147,7 +148,7 @@ input[type="checkbox"] {
 .books-list {
   display: flex;
   flex-direction: column;
-  min-width: 80%;
+  width: 80%;
   gap: 20px;
 }
 
@@ -165,6 +166,12 @@ input[type="checkbox"] {
   display: grid;
 }
 
+.card-btns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
 img.github-logo {
   max-width: 24px;
 }
@@ -172,6 +179,7 @@ img.github-logo {
 footer {
   display: flex;
   align-items: center;
+  justify-content: center;
   min-height: 3rem;
 }
 
