@@ -146,9 +146,10 @@ input[type="checkbox"] {
 }
 
 .books-list {
-  display: flex;
-  flex-direction: column;
-  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  align-content: start;
+  width: 90%;
   gap: 20px;
 }
 
